@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlateformeMouvement : MonoBehaviour
 {    
     public Rigidbody m_RigidB;
-    private Vector3 m_Direction; 
+    private Vector3 m_Direction;
 
     private void Start()
     {

@@ -27,8 +27,7 @@ public class CameraMouvement : MonoBehaviour
 
         RestartBotton.SetActive(false);
         DeathTxt.SetActive(false);
-        PlayerPos.gameObject.SetActive(true);
-        
+        PlayerPos.gameObject.SetActive(true);      
     }
 
     void Update()
@@ -47,16 +46,13 @@ public class CameraMouvement : MonoBehaviour
             Camera.transform.position = Vector3.Lerp(startPos, endPos, percentage);
         }
         
-
         //player destroy et restart scene
         if (PlayerPos.position.y < transform.position.y - 20f)
         {
             PlayerPos.gameObject.SetActive(false);
             lerpTime = 0f;
             RestartBotton.SetActive(true);
-            DeathTxt.SetActive(true);
-
-          
+            DeathTxt.SetActive(true);          
         }
     }
 }
