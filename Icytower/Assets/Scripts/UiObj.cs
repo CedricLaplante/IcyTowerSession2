@@ -3,30 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UiObj : MonoBehaviour
-{
-    public GameObject UiObject;
+{    
+    public GameObject FinishTxt;
+    public GameObject RestartBotton;
     
+   
 
     void Start()
     {
-        UiObject.SetActive(false);
-        
+        FinishTxt.SetActive(false);
+        RestartBotton.SetActive(false);
     }
 
     void OnTriggerEnter(Collider player)
     {
         
         if (player.gameObject.tag == "Player")
-        {           
-            UiObject.SetActive(true);          
+        {
+                 
+            FinishTxt.SetActive(true);
+            RestartBotton.SetActive(true);
             StartCoroutine("WaitForSec");          
         }
     }
 
     private IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(5);
-        Destroy(UiObject);
+        yield return new WaitForSeconds(5);        
         Destroy(gameObject);
     }
 }
