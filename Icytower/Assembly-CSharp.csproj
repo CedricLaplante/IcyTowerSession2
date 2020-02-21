@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ButtonRestart.cs" />
     <Compile Include="Assets\Scripts\CameraMouvement.cs" />
     <Compile Include="Assets\Scripts\PlateformeMouvement.cs" />
     <Compile Include="Assets\Scripts\PlayerMouvement.cs" />

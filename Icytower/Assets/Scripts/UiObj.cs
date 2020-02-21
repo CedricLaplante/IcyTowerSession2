@@ -5,6 +5,7 @@ using UnityEngine;
 public class UiObj : MonoBehaviour
 {
     public GameObject UiObject;
+    
 
     void Start()
     {
@@ -16,12 +17,9 @@ public class UiObj : MonoBehaviour
     {
         
         if (player.gameObject.tag == "Player")
-        {
-           
-            UiObject.SetActive(true);
-            Debug.Log("Je trigger");
-            StartCoroutine("WaitForSec");
-           
+        {           
+            UiObject.SetActive(true);          
+            StartCoroutine("WaitForSec");          
         }
     }
 

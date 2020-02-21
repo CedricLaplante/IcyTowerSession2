@@ -11,7 +11,6 @@ public class PlateformeMouvement : MonoBehaviour
     {
         m_Direction = new Vector3(7.5f, 0f, 0f);
         m_RigidB.velocity = m_Direction;
-
     }
 
  
