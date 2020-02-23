@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMouvement : MonoBehaviour
 {
     public Rigidbody RB;
-    public float JumpForce = 12.5f; 
+    public float JumpForce = 11.5f; 
     private bool Jump = false;   
     private bool InAir = false; 
     private Vector3 m_Déplacement;
