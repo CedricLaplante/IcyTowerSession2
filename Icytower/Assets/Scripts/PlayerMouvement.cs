@@ -9,21 +9,24 @@ public class PlayerMouvement : MonoBehaviour
     private bool Jump = false;   
     private bool InAir = false; 
     private Vector3 m_Déplacement;
-
+    private Vector3 PlayerScale = new Vector3();
     // mouvement (jump, translate) 
     private void Update()
     {
         m_Déplacement = RB.velocity;
+        PlayerScale = transform.localScale; 
         //Gauche, Droite 
         if (InAir == false)
         {
             if (Input.GetKey(KeyCode.A))
             {
                 m_Déplacement.x = -10f;
+                PlayerScale.x = -1.5f; 
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 m_Déplacement.x = 10f;
+                PlayerScale.x = 1.5f; 
             }
             else
             {
