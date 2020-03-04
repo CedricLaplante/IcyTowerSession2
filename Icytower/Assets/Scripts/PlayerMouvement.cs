@@ -38,16 +38,16 @@ public class PlayerMouvement : MonoBehaviour
    
         
         //raycast du millieux
-        bool PlayerRaycast = Physics.Raycast(transform.position, new Vector3(0f, -1f, 0f), 0.8f);
-        Debug.DrawRay(transform.position, new Vector3(0f, -1f, 0f) * 0.8f, Color.red);
+        bool PlayerRaycast = Physics.Raycast(transform.position, new Vector3(0f, -1f, 0f), 0.3f);
+        Debug.DrawRay(transform.position, new Vector3(0f, -1f, 0f) * 0.3f, Color.red);
         //raycast gauche
         Vector3 raycastGauche = transform.position + new Vector3(-0.5f, 0f, 0f);
-        bool LeftRaycast = Physics.Raycast(raycastGauche, new Vector3(0f, -1f, 0f), 0.8f);
-        Debug.DrawRay(raycastGauche, new Vector3(0f, -1f, 0f) * 0.8f, Color.red);
+        bool LeftRaycast = Physics.Raycast(raycastGauche, new Vector3(0f, -1f, 0f), 0.3f);
+        Debug.DrawRay(raycastGauche, new Vector3(0f, -1f, 0f) * 0.3f, Color.red);
         //raycast droite
         Vector3 raycastDroit = transform.position + new Vector3(0.5f, 0f, 0f);
-        bool rightRaycast = Physics.Raycast(raycastGauche, new Vector3(0f, -1f, 0f), 0.8f);
-        Debug.DrawRay(raycastDroit, new Vector3(0f, -1f, 0f) * 0.8f, Color.red);
+        bool rightRaycast = Physics.Raycast(raycastGauche, new Vector3(0f, -1f, 0f), 0.3f);
+        Debug.DrawRay(raycastDroit, new Vector3(0f, -1f, 0f) * 0.3f, Color.red);
 
         Jump = LeftRaycast || PlayerRaycast || rightRaycast;
 
