@@ -9,24 +9,25 @@ public class PlayerMouvement : MonoBehaviour
     private bool Jump = false;   
     private bool InAir = false; 
     private Vector3 m_Déplacement;
-    private Vector3 PlayerScale = new Vector3();
+    private Vector3 m_PlayerScale = new Vector3();
     // mouvement (jump, translate) 
     private void Update()
     {
         m_Déplacement = RB.velocity;
-        PlayerScale = transform.localScale; 
+        m_PlayerScale = transform.localScale; 
         //Gauche, Droite 
         if (InAir == false)
         {
+           
             if (Input.GetKey(KeyCode.A))
             {
                 m_Déplacement.x = -10f;
-                PlayerScale.x = -1.5f; 
+                m_PlayerScale.z = 1.5f; 
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 m_Déplacement.x = 10f;
-                PlayerScale.x = 1.5f; 
+                m_PlayerScale.z = -1.5f; 
             }
             else
             {
@@ -34,20 +35,20 @@ public class PlayerMouvement : MonoBehaviour
             }
         }           
         RB.velocity = m_Déplacement;
+        transform.localScale = m_PlayerScale;
 
-   
-        
+       
         //raycast du millieux
         bool PlayerRaycast = Physics.Raycast(transform.position, new Vector3(0f, -1f, 0f), 0.3f);
-        Debug.DrawRay(transform.position, new Vector3(0f, -1f, 0f) * 0.3f, Color.red);
+       
         //raycast gauche
         Vector3 raycastGauche = transform.position + new Vector3(-0.5f, 0f, 0f);
         bool LeftRaycast = Physics.Raycast(raycastGauche, new Vector3(0f, -1f, 0f), 0.3f);
-        Debug.DrawRay(raycastGauche, new Vector3(0f, -1f, 0f) * 0.3f, Color.red);
+       
         //raycast droite
         Vector3 raycastDroit = transform.position + new Vector3(0.5f, 0f, 0f);
         bool rightRaycast = Physics.Raycast(raycastGauche, new Vector3(0f, -1f, 0f), 0.3f);
-        Debug.DrawRay(raycastDroit, new Vector3(0f, -1f, 0f) * 0.3f, Color.red);
+       
 
         Jump = LeftRaycast || PlayerRaycast || rightRaycast;
 
@@ -55,8 +56,7 @@ public class PlayerMouvement : MonoBehaviour
         if (Jump == true && Input.GetKeyDown(KeyCode.Space))
         {
             RB.AddForce(Vector3.up * JumpForce , ForceMode.Impulse);
-            Jump = false;
-            
+            Jump = false;           
         }        
     }
  

@@ -50,7 +50,6 @@ public class CameraMouvement : MonoBehaviour
         if (PlayerPos.position.y < transform.position.y - 20f)
         {
             PlayerPos.gameObject.SetActive(false);
-            lerpTime = 0f;
             RestartBotton.SetActive(true);
             DeathTxt.SetActive(true);          
         }
